@@ -1,0 +1,19 @@
+{
+  "name": "clinic-backend",
+  "version": "1.0.0",
+  "description": "Backend modular para la gestión interna de centros de salud. Permite organizar operativos, derivar pacientes a especialidades y asignar responsables por área. Desarrollado en Node.js + TypeScript siguiendo principios de Arquitectura Hexagonal (Ports &amp; Adapters).",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}
