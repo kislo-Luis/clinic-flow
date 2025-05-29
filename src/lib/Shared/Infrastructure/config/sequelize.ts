@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import { DB_CONFIG } from "./config";
+import { PersonModel } from "../../../Person/infrastructure/ORM/PersonModel";
 import dotenv from 'dotenv';
 
 
@@ -21,8 +22,8 @@ const sequelize = new Sequelize({
   }    
 });
 
-//proximamente iportamos los modelos y los pasamos al array
-// const models = [];
-// models.forEach((model) => model.initialize(sequelize))
+
+const models = [PersonModel];
+models.forEach((model) => model.initialize(sequelize))
 
 export {sequelize};
