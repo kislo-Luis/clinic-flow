@@ -2,8 +2,7 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  Length,
-  IsDate
+  Length,  
 } from "class-validator";
 
 export class CreatePersonRequestDto {
