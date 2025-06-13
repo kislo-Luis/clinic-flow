@@ -22,15 +22,16 @@ export class PersonModel extends Model{
             },
             fullName:{
                 type:DataTypes.STRING,
-                allowNull:true
+                allowNull:false
             },
             lastName:{
                 type:DataTypes.STRING,
-                allowNull:true
+                allowNull:false
             },
             dni:{
                 type:DataTypes.STRING,
-                allowNull:true
+                allowNull:false,
+                unique: true
             },
             yearBirth:{
                 type:DataTypes.STRING,
