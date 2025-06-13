@@ -42,9 +42,8 @@ export class PersonCreate {
       );
     });
 
-    const person = await this.repository.getOnePerson(
-      dto.fullName.toUpperCase(),
-      dto.lastName.toUpperCase(),
+    
+    const person = await this.repository.getOneByDni(      
       dto.dni
     );
 
@@ -64,6 +63,7 @@ export class PersonCreate {
   private formatErrors(errors: ValidationError | ValidationError[]): string[] {
     if (!Array.isArray(errors)) {
       errors = [errors];
+      console.error
     }
     return errors.flatMap((error) => Object.values(error.constraints || {}));
   }

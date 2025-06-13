@@ -18,6 +18,15 @@ export class PersonORMRepository implements PersonRepository {
     return person? this.mapToDomain(person):null;
   }
 
+  async getOneByDni(dni:string): Promise<Person|null>{
+    const person= await PersonModel.findOne({
+      where:{        
+        dni
+      },
+    });
+    return person? this.mapToDomain(person):null;
+  }
+
   async create(dto: CreatePersonRequestDto): Promise<Person> {  
       const personDomain = new Person({
       fullName: dto.fullName,
