@@ -3,7 +3,8 @@ import {Person} from "../domain/Person"
 
 export interface PersonRepository {
 
-    getOnePerson(fullName:string,lastName:string, dni:string): Promise<Person|null>
+    getOnePerson(firstName:string,lastName:string, dni:string): Promise<Person|null>
     getOneByDni(dni:string): Promise<Person|null>
-    create(dto:CreatePersonRequestDto):Promise<Person>;
+    create(dto:CreatePersonRequestDto):Promise<Person>;    
+    getActivePerson(page: number, size: number): Promise<Person[]>;
 }

@@ -5,3 +5,4 @@ const controller= new ExpressPersonController();
 export const expressPersonRouter=Router();
 
 expressPersonRouter.post('/person/create',controller.create)
+expressPersonRouter.get('/persons/all',controller.getAllPersons.bind(controller))

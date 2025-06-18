@@ -43,15 +43,3 @@ app.listen(PORT, () => {
 
 
 
-
-// app.listen(PORT, async () => {
-//   try {
-//     await sequelize.authenticate();
-//     console.log("✅ Conectado a la base de datos");
-//   } catch (error) {
-//     console.error("❌ Error al conectar con la base de datos:", error);
-//     process.exit(1); // corta el servidor si no se conecta
-//   }
-
-//   console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);
-// });

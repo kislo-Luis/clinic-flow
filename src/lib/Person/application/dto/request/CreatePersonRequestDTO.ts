@@ -8,7 +8,7 @@ import {
 export class CreatePersonRequestDto {
   @IsString({ message: "El nombre debe ser un string" })
   @IsNotEmpty({ message: "El campo nombre no puede estar vacío" })
-  fullName: string;
+  firstName: string;
 
   @IsString({ message: "El apellido debe ser un string" })
   @IsNotEmpty({ message: "El campo apellido no puede estar vacío" })
@@ -34,8 +34,8 @@ export class CreatePersonRequestDto {
   address: string;
 
 
-  constructor(fullName: string, lastName: string, dni: string, yearBirth: string,phone: string) {
-    this.fullName = fullName;
+  constructor(firstName: string, lastName: string, dni: string, yearBirth: string,phone: string) {
+    this.firstName = firstName;
     this.lastName = lastName;
     this.dni = dni;
     this.yearBirth = yearBirth;
