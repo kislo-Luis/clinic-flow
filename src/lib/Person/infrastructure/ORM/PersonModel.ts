@@ -3,7 +3,7 @@ import {Model, Sequelize,DataTypes} from "sequelize";
 
 export class PersonModel extends Model{
     public id!: number;     
-    public fullName!: string;
+    public firstName!: string;
     public lastName!: string;
     public dni!: string;
     public yearBirth!: string;
@@ -20,7 +20,7 @@ export class PersonModel extends Model{
                 primaryKey:true,
                 autoIncrement:true
             },
-            fullName:{
+            firstName:{
                 type:DataTypes.STRING,
                 allowNull:false
             },
@@ -30,8 +30,7 @@ export class PersonModel extends Model{
             },
             dni:{
                 type:DataTypes.STRING,
-                allowNull:false,
-                unique: true
+                allowNull:false,                
             },
             yearBirth:{
                 type:DataTypes.STRING,

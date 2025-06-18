@@ -7,10 +7,10 @@ import { PersonModel } from "./PersonModel";
 export class PersonORMRepository implements PersonRepository {
 
  
-  async getOnePerson(fullName: string, lastName: string, dni: string): Promise<Person | null> {
+  async getOnePerson(firstName: string, lastName: string, dni: string): Promise<Person | null> {
     const person= await PersonModel.findOne({
       where:{
-        fullName,
+        firstName,
         lastName,
         dni
       },
@@ -26,10 +26,25 @@ export class PersonORMRepository implements PersonRepository {
     });
     return person? this.mapToDomain(person):null;
   }
+  
+    async getActivePerson(page: number, size: number): Promise<Person[]> {
+    const offset = (page - 1) * size;
+    const persons = await PersonModel.findAll({
+      where: { active: true },
+      limit: size,
+      offset: offset,
+      order: [["createdAt", "DESC"]],
+      raw: true,
+    });
+
+    return persons.map((person) => this.mapToDomain(person));
+  }
+
+  
 
   async create(dto: CreatePersonRequestDto): Promise<Person> {  
       const personDomain = new Person({
-      fullName: dto.fullName,
+      firstName: dto.firstName,
       lastName: dto.lastName,
       dni: dto.dni,
       yearBirth: dto.yearBirth,
@@ -46,7 +61,7 @@ export class PersonORMRepository implements PersonRepository {
   private mapToDomain(personModel: PersonModel): Person {
     return new Person({
       id: personModel.id,
-      fullName: personModel.fullName,
+      firstName: personModel.firstName,
       lastName: personModel.lastName,
       dni: personModel.dni,
       yearBirth: personModel.yearBirth,

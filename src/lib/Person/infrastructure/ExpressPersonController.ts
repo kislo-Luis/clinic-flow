@@ -13,4 +13,17 @@ export class ExpressPersonController{
             next(error)
         }
     }
+
+    async getAllPersons (req: Request, res: Response, next: NextFunction) {
+    try {
+      const page = parseInt(req.query.page as string) || 1;
+      const size = parseInt(req.query.size as string) || 10;
+
+      const persons = await serviceContainer.person.getAll.run(page, size);
+      return res.status(200).json(persons);
+
+    } catch (error) {
+      next(error);
+    }
+  }
 }

@@ -1,6 +1,6 @@
 export class Person {
     public id?: number;
-    public fullName?: string;
+    public firstName?: string;
     public lastName?: string;
     public dni?: string;
     public yearBirth?: string;
@@ -19,7 +19,7 @@ export class Person {
     public mapToPrimitives() {
         return {
             id: this.id,
-            fullName: this.fullName,
+            firstName: this.firstName,
             lastName: this.lastName,
             dni: this.dni,
             yearBirth: this.yearBirth,

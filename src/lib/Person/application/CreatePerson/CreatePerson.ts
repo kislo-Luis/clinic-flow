@@ -11,8 +11,8 @@ export class PersonCreate {
    
     
 
-    if (typeof dto.fullName === "string") {
-      dto.fullName = dto.fullName.toUpperCase();
+    if (typeof dto.firstName === "string") {
+      dto.firstName = dto.firstName.toUpperCase();
     } else {
       throw new GlobalAppException(
         400,
