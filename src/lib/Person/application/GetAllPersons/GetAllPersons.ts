@@ -24,6 +24,7 @@ export class GetAllPersons {
 
       const personsDTO = persons.map((person) =>
         plainToInstance(PersonGeneralResponseDTO, {
+          id:person.id,
           firstName: person.firstName,
           lastName: person.lastName,
           dni: person.dni,
